@@ -1,27 +1,28 @@
-var bubble = {
-	x: 300,
-	y: 200,
-}
+let bubbles = [];
 
 function setup() { // built-in P5.JS function -=- this runs once
 	createCanvas(600, 400); 
-	bubble1 = new Bubble();
-	bubble2 = new Bubble();
+	for (let i = 0; i < 1000; 1++) {
+		let x = random(width);
+		let y = random(height);
+		let x = random(10, 40);
+		bubbles[i] = new Bubble(x, y, r);
+	}
 }
 
 function draw() { // built-in P5.JS function -=-  automatic loop that repeats forever
 	background(0); // give the canvas a black background
-	bubble1.move();
-	bubble1.show();
-	bubble2.move();
-	bubble2.show();
+	for (let i = 0; i < bubbles.length; i++) {
+		bubbles[i].move();
+		bubbles[i].show();
+	}
 }
 
 class Bubble 
 {
 	constructor(x, y, r) {
-		this.x = 200;
-		this.y = 200;
+		this.x = x;
+		this.y = y;
 		this.r = r;
 }
 
